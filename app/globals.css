@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+:root {
+  --tna-bg: #05070d;
+  --tna-surface: #0b111d;
+  --tna-card: #0f172a;
+  --tna-accent: #00b5e2;
+  --tna-accent-2: #60a5ff;
+  --tna-text: #e5e7eb;
+  --tna-muted: #9ca3af;
+  --tna-border: rgba(255, 255, 255, 0.08);
+  --tna-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+}
+
+body {
+  color: var(--tna-text);
+  background: radial-gradient(circle at 20% 20%, rgba(0, 181, 226, 0.08), transparent 30%),
+    radial-gradient(circle at 80% 0%, rgba(96, 165, 255, 0.08), transparent 26%),
+    var(--tna-bg);
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(0, 181, 226, 0.25);
+  color: #fff;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  input,
+  textarea {
+    border-radius: 0.75rem;
+  }
+}

@@ -4,8 +4,8 @@ import SectionHeader from "./SectionHeader";
 type SectionProps = {
   id?: string;
   eyebrow?: string;
-  title?: string;
-  subtitle?: string;
+  title?: ReactNode;
+  subtitle?: ReactNode;
   align?: "left" | "center";
   spacing?: "tight" | "normal" | "loose";
   children?: ReactNode;

@@ -1,10 +1,9 @@
 "use client";
 
-"use client";
-
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const navLinks = [
@@ -13,21 +12,48 @@ const navLinks = [
   { href: "/tenerife", label: "Tenerife" },
   { href: "/about-us", label: "About us" },
   { href: "/latest-news", label: "Latest news" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-black/80 backdrop-blur-lg border-b border-white/10">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled
+        ? "bg-black/80 backdrop-blur-lg border-b border-white/10 py-3"
+        : "bg-transparent border-b border-transparent py-5"
+        }`}
+    >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-3">
         <div className="flex items-center justify-between gap-4">
           <Link
             href="/"
-            className="text-base sm:text-lg font-black tracking-tight text-white"
+            className="flex items-center gap-3 text-base sm:text-lg font-black tracking-tight text-white"
           >
-            TENERIFE <span className="text-[#00B5E2]">NEXT</span> ACADEMY
+            <span className="relative inline-flex h-10 w-10 overflow-hidden rounded-full border border-white/15 bg-white/5 shadow-lg shadow-black/30 ring-1 ring-white/10">
+              <Image
+                src="/images/tenerife-next-academy-2.jpg"
+                alt="Tenerife Next Academy logo"
+                fill
+                sizes="40px"
+                className="object-cover"
+                priority
+              />
+            </span>
+            <span>
+              TENERIFE <span className="text-[#00B5E2]">NEXT</span> ACADEMY
+            </span>
           </Link>
 
           <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
@@ -37,7 +63,7 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                    className={`relative text-xs lg:text-sm font-semibold uppercase tracking-[0.18em] transition-colors ${isActive ? "text-white" : "text-white/70 hover:text-white"
+                  className={`relative text-xs lg:text-sm font-semibold uppercase tracking-[0.18em] transition-colors ${isActive ? "text-white" : "text-white/70 hover:text-white"
                     }`}
                 >
                   {link.label}

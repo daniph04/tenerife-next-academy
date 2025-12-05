@@ -14,11 +14,12 @@
 
 body {
   color: var(--tna-text);
-  background: radial-gradient(circle at 20% 20%, rgba(0, 181, 226, 0.08), transparent 30%),
-    radial-gradient(circle at 80% 0%, rgba(96, 165, 255, 0.08), transparent 26%),
-    var(--tna-bg);
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: #02060d;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 ::selection {
@@ -26,9 +27,32 @@ body {
   color: #fff;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-space-grotesk), var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .animate-marquee {
+    animation: marquee 28s linear infinite;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
   }
 }
 
@@ -46,4 +70,23 @@ body {
   textarea {
     border-radius: 0.75rem;
   }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #02060d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1f2937;
+  border-radius: 5px;
+  border: 2px solid #02060d;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #374151;
 }

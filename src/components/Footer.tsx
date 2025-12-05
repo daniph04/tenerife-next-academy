@@ -42,12 +42,12 @@ export default function Footer() {
               Connect
             </p>
             <a
-              href="https://www.instagram.com/tenerifenextacademy"
+              href="https://www.instagram.com/tna_soccer/"
               target="_blank"
               rel="noreferrer"
               className="block text-sm font-semibold text-white hover:text-[#00B5E2] transition"
             >
-              Instagram · @tenerifenextacademy
+              Instagram · @tna_soccer
             </a>
             <a
               href="https://www.linkedin.com/in/jorge-gonzalezm"

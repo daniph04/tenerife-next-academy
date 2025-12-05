@@ -4,6 +4,7 @@ const securityHeaders = [
     key: "Content-Security-Policy",
     value: [
       "default-src 'self'",
+      "frame-src 'self' https://www.google.com https://maps.googleapis.com",
       "img-src 'self' data: blob:",
       "media-src 'self' data: blob:",
       "font-src 'self' data:",

@@ -28,7 +28,7 @@ export default function HeroFull({
   const hasVideo = Boolean(backgroundVideo);
 
   return (
-    <div className="relative flex min-h-[80vh] w-full items-center justify-center overflow-hidden bg-black">
+    <div className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-black">
       <div className="absolute inset-0">
         {hasVideo && backgroundVideo ? (
           <motion.video
@@ -61,11 +61,11 @@ export default function HeroFull({
         ) : null}
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/70 to-black/80" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/65 to-black/80" />
 
       {overlayText && (
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-          <h2 className="text-[16vw] font-black uppercase tracking-[0.18em] text-white/10 sm:text-[12vw] lg:text-[9vw]">
+          <h2 className="text-[16vw] font-black uppercase tracking-[0.14em] text-white/10 sm:text-[12vw] lg:text-[9vw]">
             {overlayText}
           </h2>
         </div>
@@ -75,14 +75,14 @@ export default function HeroFull({
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-4 text-center py-16 sm:py-20"
+        className="relative z-10 mx-auto flex max-w-6xl flex-col items-center px-6 text-center py-28 md:py-32"
       >
         {eyebrow && (
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="mb-4 text-xs uppercase tracking-[0.28em] text-white/70 sm:text-sm"
+            className="mb-5 text-xs sm:text-sm uppercase tracking-[0.3em] text-white/70"
           >
             {eyebrow}
           </motion.p>
@@ -92,7 +92,7 @@ export default function HeroFull({
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}
-          className="text-4xl font-black uppercase leading-tight tracking-wide text-white sm:text-5xl md:text-6xl lg:text-7xl"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase leading-[1.02] tracking-[0.08em] text-white"
         >
           {title}
         </motion.h1>
@@ -102,7 +102,7 @@ export default function HeroFull({
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25 }}
-            className="mx-auto mt-6 max-w-3xl text-base text-white/85 sm:text-lg md:text-xl"
+            className="mx-auto mt-8 max-w-4xl text-lg text-white/80 sm:text-xl md:text-2xl"
           >
             {subtitle}
           </motion.p>
@@ -113,7 +113,7 @@ export default function HeroFull({
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35 }}
-            className="mt-8 text-xs uppercase tracking-[0.2em] text-white/60"
+            className="mt-10 text-xs uppercase tracking-[0.22em] text-white/65"
           >
             {bottomText}
           </motion.p>

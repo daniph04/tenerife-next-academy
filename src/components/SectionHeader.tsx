@@ -17,17 +17,17 @@ export default function SectionHeader({
   return (
     <div className={`flex flex-col gap-3 ${alignClass}`}>
       {eyebrow && (
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#00B5E2]">
+        <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.28em] text-[#00B5E2]">
           {eyebrow}
         </p>
       )}
       {title && (
-        <h2 className="text-3xl font-black uppercase leading-tight text-white sm:text-4xl">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase leading-tight tracking-tight text-white">
           {title}
         </h2>
       )}
       {subtitle && (
-        <p className="text-base text-white/70 sm:text-lg">
+        <p className="max-w-3xl text-lg text-white/75 sm:text-xl">
           {subtitle}
         </p>
       )}

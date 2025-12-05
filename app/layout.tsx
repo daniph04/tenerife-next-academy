@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -9,22 +9,20 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
+  subsets: ["latin"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
   title: "Tenerife Next Academy",
   description: "Elite football experiences in Europe's paradise. Where performance meets paradise.",
-  openGraph: {
-    title: "Tenerife Next Academy",
-    description: "Elite football experiences in Europe's paradise. Where performance meets paradise.",
-    url: "/",
-    type: "website",
-    images: ["/images/hero-teide.jpg"],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Tenerife Next Academy",
-    description: "Elite football experiences in Europe's paradise. Where performance meets paradise.",
-    images: ["/images/hero-teide.jpg"],
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
 };
 
@@ -36,10 +34,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} antialiased min-h-screen bg-transparent text-white`}
+        className={`${inter.variable} ${spaceGrotesk.variable} antialiased min-h-screen bg-transparent text-white`}
       >
         <Navbar />
-        <main className="pt-20 min-h-screen">
+        <main className="flex min-h-screen flex-col">
           {children}
         </main>
         <Footer />

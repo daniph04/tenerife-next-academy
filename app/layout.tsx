@@ -20,9 +20,12 @@ export const metadata: Metadata = {
   title: "Tenerife Next Academy",
   description: "Elite football experiences in Europe's paradise. Where performance meets paradise.",
   icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
+    icon: [
+      { url: "/favicon.png", type: "image/png", sizes: "32x32" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: [{ url: "/favicon.png", type: "image/png" }],
   },
 };
 

@@ -19,6 +19,10 @@ export default function ScrollStory({ items }: Props) {
   const [active, setActive] = useState(0);
   const refs = useRef<(HTMLDivElement | null)[]>([]);
 
+  const setItemRef = (index: number) => (el: HTMLDivElement | null): void => {
+    refs.current[index] = el;
+  };
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -44,7 +48,7 @@ export default function ScrollStory({ items }: Props) {
         {items.map((item, idx) => (
           <div
             key={item.title}
-            ref={(el) => (refs.current[idx] = el)}
+            ref={setItemRef(idx)}
             data-index={idx}
             className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/30"
           >
@@ -59,9 +63,8 @@ export default function ScrollStory({ items }: Props) {
                 <p className="text-base text-white/80">{item.description}</p>
               </div>
               <span
-                className={`mt-1 h-3 w-3 flex-none rounded-full transition ${
-                  active === idx ? "bg-[#00B5E2]" : "bg-white/30"
-                }`}
+                className={`mt-1 h-3 w-3 flex-none rounded-full transition ${active === idx ? "bg-[#00B5E2]" : "bg-white/30"
+                  }`}
               />
             </div>
             {item.bullets && (

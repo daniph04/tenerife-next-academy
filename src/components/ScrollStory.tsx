@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type RefCallback } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -19,8 +19,8 @@ export default function ScrollStory({ items }: Props) {
   const [active, setActive] = useState(0);
   const refs = useRef<(HTMLDivElement | null)[]>([]);
 
-  const setItemRef = (index: number) => (el: HTMLDivElement | null): void => {
-    refs.current[index] = el;
+  const setItemRef = (index: number): RefCallback<HTMLDivElement> => (el) => {
+    refs.current[index] = el ?? null;
   };
 
   useEffect(() => {
